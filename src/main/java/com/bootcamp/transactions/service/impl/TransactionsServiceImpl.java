@@ -89,10 +89,10 @@ public class TransactionsServiceImpl implements TransactionsService {
 	 */
 	@Override
 	public Mono<Message> deleteTransaction(String transactionId) {
-		Message message = new Message("transaction does not exist");
+		Message message = new Message("Transaction does not exist");
 		return transactionsRepository.findById(transactionId)
 				.flatMap(dTransaction -> {
-					message.setMessage("Person deleted successfully");
+					message.setMessage("Transaction deleted successfully");
 					return transactionsRepository.deleteById(dTransaction.getId()).thenReturn(message);
 				}).defaultIfEmpty(message);
 	}
