@@ -1,11 +1,6 @@
 server:
-  port: 8083
+  port: 8086
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/bootcampDB?authSource=admin
-management:
-  endpoints:
-    web:
-      exposure:
-        include: info
+      uri: mongodb://localhost:27017/transactions

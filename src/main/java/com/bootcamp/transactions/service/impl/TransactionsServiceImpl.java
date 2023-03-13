@@ -36,7 +36,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 		Transaction transaction = new Transaction(null,transactionRequestDto.getProductType(),
 				transactionRequestDto.getProductId(),transactionRequestDto.getCustomerId()
 				,transactionRequestDto.getTransactionType(),transactionRequestDto.getAmount(),
-				transactionRequestDto.getTransactionDate());
+				transactionRequestDto.getTransactionDate(), transactionRequestDto.getCustomerType());
 		return transactionsRepository.save(transaction);
 	}
 
@@ -50,6 +50,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 					uTransaction.setTransactionType(transactionRequestDto.getTransactionType());
 					uTransaction.setAmount(transactionRequestDto.getAmount());
 					uTransaction.setTransactionDate(transactionRequestDto.getTransactionDate());
+					uTransaction.setCustomerType(transactionRequestDto.getCustomerType());
 					return transactionsRepository.save(uTransaction);
 				});
 	}
@@ -62,5 +63,11 @@ public class TransactionsServiceImpl implements TransactionsService {
 					message.setMessage("Person deleted successfully");
 					return transactionsRepository.deleteById(dTransaction.getId()).thenReturn(message);
 				}).defaultIfEmpty(message);
+	}
+
+	@Override
+	public Flux<Transaction> getAllXProductId(String productId) {
+		return transactionsRepository.findAll()
+				.filter(t -> t.getProductId().equals(productId));
 	}
 }

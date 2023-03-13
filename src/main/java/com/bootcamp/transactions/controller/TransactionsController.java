@@ -17,7 +17,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/transactions")
+@RequestMapping("/transaction")
 public class TransactionsController {
 
 	@Autowired
@@ -51,5 +51,10 @@ public class TransactionsController {
 	@DeleteMapping("/{transactionId}")
 	public Mono<Message> deleteTransaction(@PathVariable String transactionId){
 		return transactionsService.deleteTransaction(transactionId);
+	}
+	
+	@GetMapping("/product/{productId}")
+	public Flux<Transaction> getAllXProductId(@PathVariable String productId){
+		return transactionsService.getAllXProductId(productId);
 	}
 }

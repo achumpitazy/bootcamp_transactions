@@ -20,4 +20,6 @@ public interface TransactionsService {
 
 	Mono<Message> deleteTransaction(String transactionId);
 
+	Flux<Transaction> getAllXProductId(String productId);
+
 }
