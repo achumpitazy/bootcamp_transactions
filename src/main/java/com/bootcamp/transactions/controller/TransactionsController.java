@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+/**
+ * Clase Controller para transacciones
+ */
 @RestController
 @RequestMapping("/transaction")
 public class

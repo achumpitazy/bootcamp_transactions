@@ -63,7 +63,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 	}
 
 	/**
-	 * Actualiza la transacción dentro del repoitorio según los datos enviados en el body.
+	 * Actualiza la transacción dentro del repositorio según los datos enviados en el body.
 	 * @param transactionRequestDto
 	 * @return Mono<Transaction>
 	 */
@@ -83,7 +83,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 	}
 
 	/**
-	 * Elimina la transacción dentro del repoitorio segun el id de la transacción
+	 * Elimina la transacción dentro del repositorio segun el id de la transacción
 	 * @param transactionId
 	 * @return Mono<Message>
 	 */
