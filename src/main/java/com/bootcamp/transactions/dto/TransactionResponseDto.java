@@ -4,6 +4,9 @@ import com.bootcamp.transactions.entity.Transaction;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Clase de transferencia de datos para la respuesta de Transacciones
+ */
 @Getter
 @Setter
 public class TransactionResponseDto {

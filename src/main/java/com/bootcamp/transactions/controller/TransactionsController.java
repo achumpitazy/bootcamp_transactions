@@ -18,41 +18,76 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/transaction")
-public class TransactionsController {
+public class
+TransactionsController {
 
 	@Autowired
 	private TransactionsService transactionsService;
 
+	/**
+	 * Devuelve todas las transacciones
+	 * @return Flux<Transaction>
+	 */
 	@GetMapping
 	public Flux<Transaction> getAll(){
 		return transactionsService.getAll();
 	}
 
+	/**
+	 * Devuelve una Transacción según el id de la transacción
+	 * @param transactionId
+	 * @return Mono<Transaction>
+	 */
 	@GetMapping("/{transactionId}")
 	public Mono<Transaction> getTransactionById(@PathVariable String transactionId){
 		return transactionsService.getTransactionById(transactionId);
 	}
 
+	/**
+	 * Devuelve todas las transacciones según el id del cliente
+	 * @param customerId
+	 * @return Flux<Transaction>
+	 */
 	@GetMapping("/customer/{customerId}")
 	public Flux<Transaction> getTransactionByCustomerId(@PathVariable String customerId){
 		return transactionsService.getTransactionByCustomerId(customerId);
 	}
 
+	/**
+	 * Crea una transacción con los datos enviados en el body
+	 * @param transactionRequestDto
+	 * @return Mono<Transaction>
+	 */
 	@PostMapping
 	public Mono<Transaction> createTransaction(@RequestBody TransactionRequestDto transactionRequestDto){
 		return transactionsService.createTransaction(transactionRequestDto);
 	}
 
+	/**
+	 * Actualiza la transacción según los datos enviados en el body
+	 * @param transactionRequestDto
+	 * @return Mono<Transaction>
+	 */
 	@PutMapping
 	public Mono<Transaction> updateTransaction(@RequestBody TransactionRequestDto transactionRequestDto){
 		return transactionsService.updateTransaction(transactionRequestDto);
 	}
 
+	/**
+	 * Elimina la transacción segun el id de la transacción
+	 * @param transactionId
+	 * @return Mono<Message>
+	 */
 	@DeleteMapping("/{transactionId}")
 	public Mono<Message> deleteTransaction(@PathVariable String transactionId){
 		return transactionsService.deleteTransaction(transactionId);
 	}
-	
+
+	/**
+	 * Devuelve todas las transacciones según el id del producto
+	 * @param productId
+	 * @return Flux<Transaction>
+	 */
 	@GetMapping("/product/{productId}")
 	public Flux<Transaction> getAllXProductId(@PathVariable String productId){
 		return transactionsService.getAllXProductId(productId);

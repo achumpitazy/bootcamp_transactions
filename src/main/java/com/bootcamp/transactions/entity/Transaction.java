@@ -9,6 +9,9 @@ import java.util.Date;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * Clase de entidad
+ */
 @Data
 @AllArgsConstructor
 @Document(collection="transaction")

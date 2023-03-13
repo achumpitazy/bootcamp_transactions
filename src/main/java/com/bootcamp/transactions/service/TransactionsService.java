@@ -6,6 +6,9 @@ import com.bootcamp.transactions.entity.Transaction;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+/**
+ * Clase interfaz de servicio para las Transacciones
+ */
 public interface TransactionsService {
 
 	Flux<Transaction> getAll();

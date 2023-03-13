@@ -5,6 +5,9 @@ import java.util.Date;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
+/**
+ * Clase de transferencia de datos para la solicitud de Transacciones
+ */
 @Data
 public class TransactionRequestDto {
 	private String id;
