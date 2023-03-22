@@ -5,6 +5,9 @@ import com.bootcamp.transactions.dto.TransactionRequestDto;
 import com.bootcamp.transactions.entity.Transaction;
 import com.bootcamp.transactions.repository.TransactionsRepository;
 import com.bootcamp.transactions.service.TransactionsService;
+
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -58,7 +61,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 		Transaction transaction = new Transaction(null,transactionRequestDto.getProductType(),
 				transactionRequestDto.getProductId(),transactionRequestDto.getCustomerId()
 				,transactionRequestDto.getTransactionType(),transactionRequestDto.getAmount(),
-				transactionRequestDto.getTransactionDate(), transactionRequestDto.getCustomerType());
+				LocalDateTime.now(), transactionRequestDto.getCustomerType(), transactionRequestDto.getBalance());
 		return transactionsRepository.save(transaction);
 	}
 
@@ -78,6 +81,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 					uTransaction.setAmount(transactionRequestDto.getAmount());
 					uTransaction.setTransactionDate(transactionRequestDto.getTransactionDate());
 					uTransaction.setCustomerType(transactionRequestDto.getCustomerType());
+					uTransaction.setBalance(transactionRequestDto.getBalance());
 					return transactionsRepository.save(uTransaction);
 				});
 	}

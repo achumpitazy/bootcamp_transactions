@@ -1,8 +1,8 @@
 package com.bootcamp.transactions.dto;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
-import jakarta.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
 /**
@@ -22,7 +22,10 @@ public class TransactionRequestDto {
 	@NotEmpty
 	private Double amount;
 	@NotEmpty
-	private Date transactionDate;
+	private LocalDateTime transactionDate;
 	
 	private String customerType;
+	
+	private Double balance;
+	
 }

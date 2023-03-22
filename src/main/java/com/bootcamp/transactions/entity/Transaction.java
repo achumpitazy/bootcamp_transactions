@@ -1,10 +1,10 @@
 package com.bootcamp.transactions.entity;
 
-import jakarta.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -29,7 +29,9 @@ public class Transaction {
 	@NotEmpty
 	private Double amount;
 	@NotEmpty
-	private Date transactionDate;
+	private LocalDateTime transactionDate;
 	@NotEmpty
 	private String customerType;
+	
+	private Double balance;
 }
