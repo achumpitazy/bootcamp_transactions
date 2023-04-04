@@ -1,19 +1,22 @@
 package com.bootcamp.transactions.entity;
 
-import javax.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import jakarta.validation.constraints.NotEmpty;
+
 /**
  * Clase de entidad
  */
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Document(collection="transaction")
 public class Transaction {
 	@Id

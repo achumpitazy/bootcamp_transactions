@@ -2,7 +2,7 @@ package com.bootcamp.transactions.dto;
 
 import java.time.LocalDateTime;
 
-import javax.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
 /**
